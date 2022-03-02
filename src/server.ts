@@ -1,12 +1,13 @@
-import express, { Express, json, NextFunction, Request, Response, Router, urlencoded } from 'express';
+import express, { Express, json, NextFunction, Request, Response, urlencoded } from 'express';
 import { Server as HttpServer } from 'http';
+import Router from 'express-promise-router';
 import helmet from 'helmet';
-import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
+import { ApiException } from './errors/api.exception';
 
 export class Server {
   private express: Express;
-  private port: string;
+  private readonly port: string;
   private httpServer?: HttpServer;
 
   constructor(port: string) {
@@ -29,7 +30,17 @@ export class Server {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     router.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       console.log(err);
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+
+      let errorToShow: ApiException;
+
+      if (!(err instanceof ApiException)) {
+        console.log('transform error');
+        errorToShow = new ApiException(err.message);
+      } else {
+        errorToShow = err;
+      }
+
+      res.status(errorToShow.getStatusCode()).send(errorToShow.toJson());
     });
   }
 

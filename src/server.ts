@@ -40,7 +40,7 @@ export class Server {
         errorToShow = err;
       }
 
-      res.status(errorToShow.getStatusCode()).send(errorToShow.toJson());
+      res.status(errorToShow.code).send(errorToShow.toJson());
     });
   }
 

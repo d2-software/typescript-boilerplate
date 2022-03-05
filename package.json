@@ -7,6 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "dev": "nodemon ./src/index.ts --watch",

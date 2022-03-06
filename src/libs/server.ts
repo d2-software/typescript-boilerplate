@@ -2,8 +2,8 @@ import express, { Express, json, NextFunction, Request, Response, urlencoded } f
 import { Server as HttpServer } from 'http';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
-import { registerRoutes } from './routes';
-import { ApiException } from './errors/api.exception';
+import { registerRoutes } from '../routes';
+import { ApiException } from '../errors/api.exception';
 
 export class Server {
   private express: Express;
@@ -15,12 +15,12 @@ export class Server {
 
     this.express = express();
     this.express.use(json());
-    this.express.use(urlencoded({ extended: true }));
+    this.express.use(urlencoded({extended: true}));
 
     this.express.use(helmet.xssFilter());
     this.express.use(helmet.noSniff());
     this.express.use(helmet.hidePoweredBy());
-    this.express.use(helmet.frameguard({ action: 'deny' }));
+    this.express.use(helmet.frameguard({action: 'deny'}));
 
     const router = Router();
 

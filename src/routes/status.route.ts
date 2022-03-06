@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
 // import container from '../dependency-injection';
-import StatusGetController from '../controllers/statusGet.controller';
-import StatusGetMiddleware from '../middlewares/statusGet.middleware';
+import StatusGetController from '../controllers/status/statusGet.controller';
+import StatusGetMiddleware from '../middlewares/status/statusGet.middleware';
 
 export const register = (router: Router) => {
   // const controller: StatusController = container.get('Apps.mooc.controllers.StatusGetController');

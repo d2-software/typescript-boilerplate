@@ -14,4 +14,12 @@ export const UserSchema = new Schema<UserInterface>(
   }
 );
 
-export const UserModel: Model<UserInterface> = model<UserInterface, Model<UserInterface>>(USER_COLLECTION, UserSchema);
+UserSchema.methods.toJson = function () {
+  return {
+    name: this.get('name'),
+    email: this.get('email'),
+    avatar: this.get('avatar')
+  };
+};
+
+export const UserModel = model<UserInterface, Model<UserInterface>>(USER_COLLECTION, UserSchema);

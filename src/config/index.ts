@@ -5,6 +5,8 @@ import { join } from 'path';
 dotenv.config({ path: `${__dirname}/../.env` });
 
 export const configuration = {
+  environment: process.env.ENVIRONMENT || 'environment',
+  logsDir: process.env.LOGS_DIR || 'logs',
   hostPort: process.env.PORT,
   database: {
     uri: process.env.DB_CONNECTION_URI

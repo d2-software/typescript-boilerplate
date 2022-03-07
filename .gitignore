@@ -6,3 +6,5 @@ yarn-error.log
 /src/.env
 /src/config/keys/private.key
 /src/config/keys/public.key
+
+/logs/*.log

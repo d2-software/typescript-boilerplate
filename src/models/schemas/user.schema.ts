@@ -1,9 +1,9 @@
 import { Model, model, Schema } from 'mongoose';
-import { User as UserInterface } from '../user.interface';
+import { User } from '../user';
 
 export const USER_COLLECTION = 'User';
 
-export const UserSchema = new Schema<UserInterface>(
+export const UserSchema = new Schema<User>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -22,4 +22,4 @@ UserSchema.methods.toJson = function () {
   };
 };
 
-export const UserModel = model<UserInterface, Model<UserInterface>>(USER_COLLECTION, UserSchema);
+export const UserModel = model<User, Model<User>>(USER_COLLECTION, UserSchema);

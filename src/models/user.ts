@@ -1,29 +1,25 @@
 import { User as UserInterface } from './user.interface';
 
 export class User {
-  readonly #name: string;
-  readonly #email: string;
-  readonly #avatar: string;
+  name: string;
+  email: string;
+  avatar: string;
 
   constructor({ name, email, avatar }: UserInterface) {
-    this.#name = name;
-    this.#email = email;
-    this.#avatar = avatar;
+    this.name = name;
+    this.email = email;
+    this.avatar = avatar;
   }
 
-  public static createUser({ name, email, avatar }: UserInterface): User {
-    return new User({ name, email, avatar });
+  public static createUser(userData: UserInterface): User {
+    return new User(userData);
   }
 
-  get name() {
-    return this.#name;
-  }
-
-  get email() {
-    return this.#email;
-  }
-
-  get avatar() {
-    return this.#avatar;
+  public toJson(): object {
+    return {
+      name: this.name,
+      email: this.email,
+      avatar: this.avatar
+    };
   }
 }

@@ -1,0 +1,8 @@
+services:
+  App.controllers.UsersGetController:
+    class: ../../controllers/users/usersGet.controller
+    arguments: []
+
+  App.controllers.StatusGetController:
+    class: ../../controllers/status/statusGet.controller
+    arguments: []

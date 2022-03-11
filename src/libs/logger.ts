@@ -1,31 +1,19 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, Logger as WinstonLogger, transports } from 'winston';
 import 'winston-daily-rotate-file';
-import { existsSync, mkdirSync } from 'fs';
 
-export class Logger {
-  logDir: string;
+class Logger {
+  logger: WinstonLogger;
   environment: string;
 
-  constructor(logDir, environment) {
-    this.logDir = logDir;
-    this.environment = environment;
-  }
+  constructor(environment?: string) {
+    this.environment = environment ?? process.env.ENVIRONMENT;
 
-  async init() {
-    if (!existsSync(this.logDir)) {
-      mkdirSync(this.logDir);
-    }
-
-    this.create();
-  }
-
-  private create() {
     const dailyRotateFileTransport = new transports.DailyRotateFile({
-      filename: `${this.logDir}/%DATE%-results.log`,
+      filename: `logs/%DATE%-results.log`,
       datePattern: 'YYYY-MM-DD'
     });
 
-    const logger = createLogger({
+    this.logger = createLogger({
       level: this.environment === 'development' ? 'silly' : 'info',
       handleExceptions: true,
       format: format.combine(
@@ -46,11 +34,19 @@ export class Logger {
         dailyRotateFileTransport
       ]
     });
+  }
 
-    logger.stream({
-      write: message => {
-        logger.info(message);
-      }
-    });
+  debug(message: string): void {
+    this.logger.debug(message);
+  }
+
+  info(message: string): void {
+    this.logger.info(message);
+  }
+
+  error(message: string): void {
+    this.logger.error(message);
   }
 }
+
+export default Logger;

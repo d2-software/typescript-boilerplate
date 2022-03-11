@@ -1,0 +1,4 @@
+imports:
+  - { resource: ./packages/libs.yaml }
+  - { resource: ./packages/middlewares.yaml }
+  - { resource: ./packages/controllers.yaml }

@@ -3,6 +3,10 @@ services:
     class: ../../controllers/users/usersGet.controller
     arguments: []
 
+  App.controllers.LoginPostController:
+    class: ../../controllers/auth/login/loginPost.controller
+    arguments: []
+
   App.controllers.StatusGetController:
     class: ../../controllers/status/statusGet.controller
     arguments: []

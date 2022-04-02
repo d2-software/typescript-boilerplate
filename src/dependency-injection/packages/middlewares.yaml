@@ -1,4 +1,7 @@
 services:
-  App.middlewares.StatusGetMiddleware:
-    class: ../../middlewares/status/statusGet.middleware
-    arguments: ['@App.libs.logger']
+#  App.middlewares.StatusGetMiddleware:
+#    class: ../../middlewares/status/statusGet.middleware
+#    arguments: ['@App.libs.logger']
+
+  App.middlewares.AuthenticationMiddleware:
+    class: ../../middlewares/common/authentication.middleware

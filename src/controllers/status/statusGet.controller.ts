@@ -4,6 +4,6 @@ import { Controller } from '../controller';
 
 export default class StatusGetController implements Controller {
   async run(req: Request, res: Response) {
-    res.status(httpStatus.OK).send({ status: 'ok' });
+    res.status(httpStatus.OK).send({});
   }
 }

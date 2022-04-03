@@ -21,6 +21,8 @@ export class App {
   }
 
   async stop() {
-    return this.server?.stop();
+    await this.connection?.close();
+    await this.server?.stop();
+    return true;
   }
 }

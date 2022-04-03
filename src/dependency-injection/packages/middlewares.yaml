@@ -5,3 +5,4 @@ services:
 
   App.middlewares.AuthenticationMiddleware:
     class: ../../middlewares/common/authentication.middleware
+    main: AuthenticationMiddleware

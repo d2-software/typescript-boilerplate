@@ -1,3 +1,4 @@
 services:
   App.repositories.UserRepository:
     class: ../../repositories/user.repository
+    main: UserRepository

@@ -1,4 +1,4 @@
 services:
   App.libs.logger:
     class: ./../../libs/logger
-    arguments: []
+    main: Logger

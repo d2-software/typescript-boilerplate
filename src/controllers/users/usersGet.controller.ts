@@ -4,11 +4,12 @@ import { Controller } from '../controller';
 import { UserRepository } from '../../repositories/user.repository';
 
 export default class UsersGetController implements Controller {
+  constructor(private readonly userRepository: UserRepository) {
+  }
+
   async run(req: Request, res: Response) {
-    const userRepository = new UserRepository();
+    const users = await this.userRepository.find();
 
-    const users = await userRepository.find();
-
-    res.status(httpStatus.OK).send({ data: users });
+    res.status(httpStatus.OK).send({data: users});
   }
 }

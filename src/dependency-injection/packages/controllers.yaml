@@ -1,12 +1,12 @@
 services:
   App.controllers.UsersGetController:
     class: ../../controllers/users/usersGet.controller
-    arguments: []
+    arguments: [ '@App.repositories.UserRepository' ]
 
   App.controllers.LoginPostController:
     class: ../../controllers/auth/login/loginPost.controller
-    arguments: []
+    arguments: [ ]
 
   App.controllers.StatusGetController:
     class: ../../controllers/status/statusGet.controller
-    arguments: []
+    arguments: [ ]

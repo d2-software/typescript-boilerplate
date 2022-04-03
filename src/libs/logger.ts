@@ -1,7 +1,7 @@
 import { createLogger, format, Logger as WinstonLogger, transports } from 'winston';
 import 'winston-daily-rotate-file';
 
-class Logger {
+export class Logger {
   logger: WinstonLogger;
   environment: string;
 
@@ -48,5 +48,3 @@ class Logger {
     this.logger.error(message);
   }
 }
-
-export default Logger;

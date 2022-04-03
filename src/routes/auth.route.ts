@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import container from '../dependency-injection';
+import { container } from '../dependency-injection';
 import { LoginPostController } from '../controllers/auth/login/loginPost.controller';
 
 export const register = (router: Router) => {

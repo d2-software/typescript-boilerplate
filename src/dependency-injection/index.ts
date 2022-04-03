@@ -5,4 +5,4 @@ const loader = new YamlFileLoader(container);
 
 loader.load(`${__dirname}/application.yaml`);
 
-export default container;
+export { container };

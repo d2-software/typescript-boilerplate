@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import container from '../dependency-injection';
+import { container } from '../dependency-injection';
 import { UsersGetController } from '../controllers/users/usersGet.controller';
 import { AuthenticationMiddleware } from '../middlewares/common/authentication.middleware';
 

@@ -4,8 +4,8 @@ import Router from 'express-promise-router';
 import helmet from 'helmet';
 import { registerRoutes } from '../routes';
 import { ApiException } from '../errors/api.exception';
-import Logger from './logger';
-import container from '../dependency-injection';
+import { Logger } from './logger';
+import { container } from '../dependency-injection';
 
 export class Server {
   private express: Express;
@@ -19,7 +19,7 @@ export class Server {
     this.express = express();
     this.express.use(json());
     this.express.use(urlencoded({ extended: true }));
-    this.logger = container.get('App.libs.logger') as Logger;
+    this.logger = container.get('App.libs.logger');
 
     this.express.use(helmet.xssFilter());
     this.express.use(helmet.noSniff());

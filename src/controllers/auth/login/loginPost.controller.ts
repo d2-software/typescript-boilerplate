@@ -4,7 +4,7 @@ import { Controller } from '../../controller';
 import { UserRepository } from '../../../repositories/user.repository';
 import { Token } from '../../../libs/token';
 
-export default class LoginPostController implements Controller {
+export class LoginPostController implements Controller {
   async run(req: Request, res: Response) {
     const { email } = req.body;
 

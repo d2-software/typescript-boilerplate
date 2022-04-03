@@ -5,7 +5,7 @@ import { Middleware } from '../middleware';
 import { Token } from '../../libs/token';
 import { ApiException } from '../../errors/api.exception';
 
-export default class AuthenticationMiddleware implements Middleware {
+export class AuthenticationMiddleware implements Middleware {
   async run(req: Request, res: Response, next: NextFunction) {
     const authToken = req.header('Authorization');
     let decodedToken;

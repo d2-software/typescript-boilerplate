@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UserRepository } from '../../../../src/repositories/user.repository';
-import UsersGetController from '../../../../src/controllers/users/usersGet.controller';
+import { UsersGetController } from '../../../../src/controllers/users/usersGet.controller';
 
 const userRepository: jest.Mocked<UserRepository> = {
   find: jest.fn(),

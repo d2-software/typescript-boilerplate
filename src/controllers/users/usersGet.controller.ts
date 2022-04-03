@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { Controller } from '../controller';
 import { UserRepository } from '../../repositories/user.repository';
 
-export default class UsersGetController implements Controller {
+export class UsersGetController implements Controller {
   constructor(private readonly userRepository: UserRepository) {
   }
 

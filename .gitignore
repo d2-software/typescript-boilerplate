@@ -8,3 +8,7 @@ yarn-error.log
 /src/config/keys/public.key
 
 /logs/*.log
+
+# Tests generated folders
+/.tmp
+/coverage
